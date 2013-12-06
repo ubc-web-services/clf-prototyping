@@ -1,0 +1,94 @@
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "base.less";
+@import "utilities.less";
+@import "mixins.less";
+
+/* ALL CUSTOM UNIT STYLES IN HERE */
+// Videos - make responsive by modifying wrapper
+.embedded-content {
+ position: relative;
+ padding-bottom: 56.25%; /* 16/9 ratio */
+ padding-top: 30px; /* IE6 workaround*/
+ height: 0;
+ overflow: hidden; }
+.embedded-content iframe,
+.embedded-content object,
+.embedded-content embed {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ border: none; }
+
+/* Custom classes
+-------------------------------------------------- */
+
+/* UNIT COLOURS
+Unit Bar background gradient and box shadow */
+#ubc7-unit {
+background: @ccpcyan; 
+/* replace with unit colour (or use theme settings) */
+box-shadow: inset 0px -10px 10px -10px #333333;
+-moz-box-shadow: inset 0px -10px 10px -10px #333333;
+-webkit-box-shadow: inset 0px -10px 10px -10px #333333; }
+
+
+#my-carousel {
+  background: @black15;
+}
+
+#navbar {
+  display: none !important;
+}
+
+/* UNIT SPECIFIC
+Typography
+-------------------------------------------------- */
+
+
+
+/* MEDIA QUERIES 
+(these are example queries to get you started - these can be maodified to suit)
+-------------------------------------------------- */
+  
+  @media screen and (min-width:1200px) {
+  /* START 1200 STYLES */
+  
+  /* END 1200 STYLES */
+  }
+  
+  
+  @media screen and (max-width:979px) {
+  /* START 768-979 STYLES */
+  
+  /* END 768-979 STYLES */
+  }
+  
+  
+  @media screen and (max-width: 767px) {
+  /* START >767 STYLES */
+  
+  /* END >767 STYLES */
+  }
+  
+  
+  @media screen and (max-width: 720px) {
+  /* START >720 STYLES */
+  
+  /* END >720 STYLES */
+  }
+  
+  
+  @media screen and (max-width: 520px) {
+  // START >520 STYLES
+  
+  // END >520 STYLES
+  }
+  
+  @media screen and (max-width: 480px) {
+  // START >480 STYLES  
+
+  // END >480 STYLES
+  }

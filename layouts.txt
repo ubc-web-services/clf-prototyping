@@ -1,0 +1,18 @@
+Homepage - done
+Basic Page - done
+Newsletter - done
+
+Blog
+Calendar (Events)
+Photo Gallery
+News / Events
+Project (main and sub)
+Form Page
+
+Bio
+
+Components
+  Campus Toggle
+  Factoids
+  Twitter Feed
+  Newsletter Signup
