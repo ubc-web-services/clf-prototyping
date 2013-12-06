@@ -1,0 +1,2 @@
+// Custom Javascript if necessary
+(function(e){e(document).ready(function(){e("#myTab a").click(function(t){t.preventDefault();e(this).tab("show")});e(".accordion .collapse").collapse()});e(window).load(function(){e(".carousel").ubc_spotlight({interval:6e3,pause:"hover"});e(".flexslider").flexslider()})})(jQuery);
