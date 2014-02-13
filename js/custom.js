@@ -14,13 +14,37 @@ $(document).ready(function() {
 	// ... or here
 
 	// tabs
-	$('#myTab a').click(function (e) {
+	$('.tabs a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
   });
   
   // accordian
-  $(".accordion .collapse").collapse();
+  $('.panel').find('.panel-tab').click(function(e){
+    e.preventDefault();
+    //Expand or collapse this panel
+    $(this).next().slideToggle('fast');
+    $(this).parent().toggleClass('panel-closed panel-open');
+    $(this).find(">:first-child").toggleClass('icon-plus-sign icon-minus-sign');
+    //Hide the other panels
+    //$(".accordion-content").not($(this).next()).slideUp('fast');
+  });
+  
+  // accordion open / close button
+  $('#openall').click(function(e){
+    e.preventDefault();
+    //Expand or collapse this panel
+    $('.panel-content').slideDown('fast');
+    $('.panel-tab > i').removeClass('icon-plus-sign').addClass('icon-minus-sign');
+    $('.panel').removeClass('panel-closed').addClass('panel-open');
+  });
+  $('#closeall').click(function(e){
+    e.preventDefault();
+    //Expand or collapse this panel
+    $('.panel-content').slideUp('fast');
+    $('.panel-tab > i').removeClass('icon-minus-sign').addClass('icon-plus-sign');
+    $('.panel').removeClass('panel-open').addClass('panel-closed');
+  });
   
 });
 
