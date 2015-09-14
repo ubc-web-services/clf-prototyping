@@ -1,0 +1,119 @@
+
+//@import "unit-components-image-cta.less";
+//@import "unit-components-media.less";
+//@import "unit-components-boxes.less";
+//@import "unit-components-pager.less";
+//@import "unit-components-forms.less";
+//@import "unit-navigation.less";
+//@import "unit-homepage-featured.less";
+@import "unit-type.less";
+
+
+main {
+  padding-bottom: 4em;
+}
+.pre-footer {
+  background-color: #efefef;
+  padding: 2em;
+}
+
+
+/* BREADCRUMBS */
+.breadcrumb {
+  margin-bottom: 2em;
+}
+
+/* HOMEPAGE TITLE */
+/* Expected Markup 
+    <h1 class="big-title">my title</h1>
+*/
+h1.big-title {
+  font-weight: 200;
+  text-align: center;
+  margin: 1.75em 0;
+  background: data-uri('../img/bg-greyline.png') left center repeat-x;
+  > span {
+    background-color: white;
+    padding: 0 .25em;
+  }
+}
+
+.pre-footer h3 {
+  font-weight: 200;
+}
+
+.faculty-identifier {
+  //background: data-uri('../img/UnitSig_SchoolOfNursing_002145.png') left top no-repeat;
+  height: 60px;
+  margin-top: 2em;
+  .logo {
+    height: 60px;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: @screen-xs-max) {
+  .faculty-identifier {
+    background-size: 300px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: @screen-ss-max) {
+  .faculty-identifier {
+    background-size: 200px;
+    height: 30px;
+  }
+}
+
+
+/* IMAGE LAYOUT */
+img.pull-right {
+  margin: 0 0 1.5em 1.5em;
+}
+
+img.pull-left {
+  margin: 0 1.5em 1.5em 0;
+}
+img.img-center {
+  margin: 0 auto 1.5em;
+  display: block;
+}
+.profile-pic img {
+  border-radius: 50%;
+  padding: .75em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+// slideshows
+.flex-caption p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ANIMATIONS */
+// Added to hide the content by default to prevent content flash on load
+.fadeIn,
+.fadeInLeft,
+.fadeInUp {
+  visibility: hidden;
+}
+// and a fallback for browsers with no javascript or when css animations are not supported 
+.no-js .fadeIn,
+.no-js .fadeInLeft,
+.no-js .fadeInUp,
+.no-cssanimations .fadeIn,
+.no-cssanimations .fadeInLeft,
+.no-cssanimations .fadeInUp {
+  visibility: visible;
+}
+
+/* sample custom animation implementation */
+/*
+.non-clf .btn:hover {
+  .animated;
+  .rubberBand;
+  animation-duration: .5s;
+}
+*/

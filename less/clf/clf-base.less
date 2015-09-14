@@ -1,0 +1,299 @@
+
+// UI improvments
+//-------------------------
+//#edit-title { font-size: 24px; }
+#system-themes-form img { width: 100px; }
+.form-item .description {
+  font-style: italic;
+  line-height: 1.2em;
+  .font-size(11);
+  margin-top: 5px;
+  color: #777; }
+#edit-delete { color: #c00; }
+// The word "Unpublished" displayed beneath the content.
+.node-unpublished { background-color: #fff; }
+.node-unpublished div.unpublished {
+  height: 0;
+  overflow: visible;
+  color: #d8d8d8;
+  .font-size(75);
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  word-wrap: break-word; }
+  
+ /* Fix Pager Styles */
+.item-list .pager li { padding: 0; }
+.item-list ul li { margin: 0; }
+.pager li.pager-current {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #eee;
+  border: 1px solid #ddd; }
+   
+/* Fix ugly article footer styles */
+article footer { background-color: inherit; }
+
+/* Fix mobile navigation btn styles */
+#ubc7-unit-menu .nav-collapse li.dropdown, 
+#ubc7-unit-alternate-navigation .nav-collapse li.dropdown {
+  border-bottom: none;
+}
+
+// Make sure ckeditor behaves and doesn't display a background image or colour
+#cke_contents_edit-body-und-0-value body { background: none !important; }
+
+// Mix admin menu if it's there
+#admin-menu .shortcut-toolbar a { background: inherit; }
+
+/* Fix the ajax throbber styles */
+html.js input.form-autocomplete {
+  background-position: 100% 8px;
+}
+
+/* Fix the collapsed fieldset styles */
+html.js fieldset.collapsed {
+  height: auto;
+}
+
+// make file markup behave
+span.file {
+  display: inline !important;
+  position: static !important;
+}
+
+// Default Drupal Tabs
+/* @group Tabs */
+div.tabs { margin: 0 0 5px 0; }
+ul.primary, 
+ul.secondary { width: 99%; }
+ul.primary {
+  margin: 0 0 .5em 0;
+  padding: 0;
+  border-width: 0;
+  list-style: none;
+  white-space: nowrap;
+  line-height: normal;
+  border-bottom: 1px solid @grayLighter; }
+ul.primary li {
+  float: left;
+  margin: 0;
+  padding: 0; }
+ul.primary li.active a, 
+ul.primary li.active a:hover {
+  border-width: 0;
+  color: @black;
+  background-color: lighten(@grayLight, 10); }
+ul.primary li a {
+  display: block;
+  height: 28px;
+  margin: 0 3px 0 0;
+  padding: 0 0 0 5px;
+  border-width: 0;
+  font-weight: bold;
+  text-decoration: none;
+  color: #777777;
+  background-color: @grayLighter;
+  .border-top-radius(4px);  }
+ul.primary li a:hover {
+  border-width: 0;
+  background-color: lighten(@grayLight, 25); }
+ul.primary li a .tab {
+  display: block;
+  height: 24px;
+  margin: 0;
+  padding: 4px 13px 4px 6px;
+  border-width: 0;
+  line-height: 20px; }
+ul.secondary {
+  margin: 0;
+  padding: 0 0 0 5px;
+  border-bottom: 1px solid silver;
+  list-style: none;
+  white-space: nowrap; }
+ul.secondary li {
+  float: left;
+  margin: 0 5px 0 0;
+  padding: 5px 0;
+  border-right: none; }
+ul.secondary a {
+  display: block;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid silver;
+  text-decoration: none;
+  color: #777777; }
+ul.secondary a .active, 
+.active ul.secondary a:hover {
+  border: 1px solid silver;
+  color: @black; }
+ul.secondary a .tab {
+  display: block;
+  height: 18px;
+  margin: 0;
+  padding: 3px 8px;
+  line-height: 18px; }
+/* @end */
+
+// Custom Utilities for Drupal CLF
+//-------------------------
+.inflate {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 0;
+  padding-right: 0; }
+.nopadding {
+  padding-left: 0;
+  padding-right: 0; }
+
+// DEFAULTS FOR CLF
+//-------------------------
+body {
+  background: @bodyBackground;
+  font-family: @sansFontFamily;
+  min-width: 240px; 
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight; }
+body.full-width { background: white; }
+//#ubc7-unit-menu .nav > li > a { padding: 9px 15px 11px; }
+//#main { background-color: @white; }
+#ubc7-unit-identifier.no-umbrella {
+  line-height: 2.25em; }
+
+// Unit Bar link and font colour
+//-------------------------
+// remove the ugly box shadows and textshadows
+#ubc7-unit {
+  background-color: @unit-primary; 
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+#ubc7-unit,
+#ubc7-unit-name a,
+#ubc7-unit-name a:hover,
+#ubc7-unit-name a:active {
+  color: @white;
+  text-shadow: none; }
+  
+// enforce the font choices in CLF regions
+#ubc7-global-menu,
+#ubc7-search,
+#ubc7-header,
+#ubc7-unit,
+#ubc7-unit-menu,
+#ubc7-footer {
+  font-family: @clfFontFamily !important;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+
+// FIX THE PRIMARY LINK ACTIVE STYLES
+//-------------------------
+/*#ubc7-unit-menu .nav > li > a.active {
+  background:  @ubcSilver;
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125); }
+#ubc7-unit-menu .nav-collapse .nav > li > a:hover, 
+#ubc7-unit-menu .nav-collapse .dropdown-menu a:hover, 
+#ubc7-unit-alternate-navigation .nav-collapse .nav > li > a:hover, 
+#ubc7-unit-alternate-navigation .nav-collapse .dropdown-menu a:hover {
+  color:  #fff;
+  text-decoration: none;
+  background-color: @ubcBlue !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }  
+
+// add box shadow to container elements
+/*#ubc7-header, div#ubc7-unit, #ubc7-unit-menu, ul.breadcrumb, #main, #ubc7-unit-footer, #ubc7-global-footer, #ubc7-minimal-footer {
+-moz-box-shadow: 0px 3px 5px #444;
+-webkit-box-shadow: 0px 3px 5px #444;
+box-shadow: 0px 3px 5px #444; }*/
+
+// FOOTER STYLES
+//-------------------------
+/** Social Icon **/
+//#ubc7-unit-social-icons i { color: @ubcBlue; }
+//#ubc7-unit-social-icons i:hover { color: @ubcLightGrey;} */
+
+// DEFAULT SUBNAV STYLES
+//-------------------------
+.bootstrap-sidenav ul {
+  margin: 0; }
+/*.bootstrap-sidenav ul > li > a {
+  border: 1px solid #d7e0e7;
+  color: #002145;
+  display: block;
+  margin: 0 0 -1px;
+  padding: 8px 14px 8px 28px;
+  text-decoration: none; }*/
+
+@media screen and (max-width:979px) {
+  // START 768-979 STYLES    
+  
+  .inflate {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0; }
+
+  // END 768-979 STYLES
+}
+
+// DEFAULT PERCENTAGE WIDTHS - so we can include this to easily ape column widths
+//-------------------------
+.span12-width() {
+  width:100%;
+  *width:99.94680851063829%;
+}
+.span11-width() {
+  width:91.45299145299145%;
+  *width:91.39979996362975%;
+}
+.span10-width() {
+  width:82.90598290598291%;
+  *width:82.8527914166212%;
+}
+.span9-width() {
+  width:74.35897435897436%;
+  *width:74.30578286961266%;
+}
+.span8-width() {
+  width:65.81196581196582%;
+  *width:65.75877432260411%;
+}
+.span7-width() {
+  width:57.44680851063829%;
+  *width:57.39361702127659%;
+}
+.span6-width() {
+  width:48.717948717948715%;
+  *width:48.664757228587014%;
+}
+.span5-width() {
+  width:40.17094017094017%;
+  *width:40.11774868157847%;
+}
+.span4-width() {
+  width:31.623931623931625%;
+  *width:31.570740134569924%;
+}
+.span3-width() {
+  width:23.076923076923077%;
+  *width:23.023731587561375%;
+}
+.span2-width() {
+  width:14.52991452991453%;
+  *width:14.476723040552828%;
+}
+.span1-width() {
+  width:5.982905982905983%;
+  *width:5.929714493544281%;
+}
+

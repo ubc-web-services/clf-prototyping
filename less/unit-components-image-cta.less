@@ -1,0 +1,68 @@
+/* IMAGE CALL TO ACTIONS
+-------------------------------------------------- */
+
+/* 
+
+A set of custom image / link bundles for the UBC Nursing website
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+
+    <div class="img-cta">
+      <a href="#">
+        <img src="img/demo-med2.jpg" alt="" />
+        <div class="center">
+          <span class="btn btn-nursing">Link Text</span>
+        </div>
+      </a>
+    </div>
+    
+  
+  VARIABLES:
+  --------------------------------------------------
+  @nursingDarkPurple - used for button backgrounds and borders, as well as a left image border
+  
+*/
+
+.img-cta {
+  a {
+    display: block;
+    position: relative;
+  }
+  img {
+    display: block;
+    border-left: 8px solid @nursingDarkPurple;
+  }
+  // some trickery to ceter the button both vertically and horizontally
+  .center {
+    transition: background-color .5s ease, color .5s ease;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 1em;
+  }
+  .btn {
+    top:50%;
+    left:50%;
+    position:relative;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50% -50%);
+  }
+  a:hover .btn {
+    background-color: @nursingDarkPurple;
+    border-color: @nursingDarkPurple;
+  }
+  a:hover .center {
+    background-color: rgba(148, 62, 127,.65);
+  }
+}
+@media (max-width: @screen-sm-max) {
+  .img-cta {
+    margin: 1em 0;
+  }
+}
+
+

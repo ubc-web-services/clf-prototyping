@@ -1,0 +1,96 @@
+/* Additional Styles for BOX Component
+-------------------------------------------------- */
+// extends components-boxes.less
+
+
+
+.box .title-group {
+  h3 {
+    margin-bottom: 0;
+  }
+  h4 {
+    margin-top: 0;
+    //font-size: 90%;
+    font-weight: 200;
+  }
+}
+
+/* Additional Class for BOX Component
+-------------------------------------------------- 
+
+.profile - alters default box markup to create a box variant used for leadership profiles
+
+*/
+
+.box.profile {
+  margin-bottom: 2em;
+  border-left: none;
+  text-align: center;
+  background-color: white;
+  &:hover {
+    border-left: none;
+    //background-color: @nursingDarkPurple;
+    background-color: rgba(148, 62, 127,.65);
+    background-color: @ubcBlue;
+    h3, h4 {
+      color: white;
+    }
+    img {
+      background-color: rgba(148, 62, 127,.68);
+      
+      border-color: rgba(148, 62, 127,.7);
+      background-color: @ubcBlue;
+      border-color: @ubcBlue;
+      //background-color: transparent;
+      //border-color: transparent;
+      //box-shadow: none;
+    }
+  }
+  h3, h4 {
+    line-height: 1.2em;
+  }
+  img {
+    border-radius: 50%;
+    padding: 1.5em;
+  }
+  > a {
+    text-decoration: none;
+  }
+}
+
+/* Revised layout for PROFILE BOX Component
+-------------------------------------------------- 
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+
+    <article class="box profile horizontal row">
+      <a href="profile.html">
+      <div class="col-md-3 col-xs-4 col-ss-12">
+        <img class="thumbnail" src="img/demo-normal1.jpg" alt="" />
+      </div>
+      <div class="inner-content col-xs-4 col-ss-12 col-md-offset-1 text-left">
+        <div class="title-group">
+          <h3>Herman Melville</h3>
+          <h4>Associate Director</h4>
+        </div>
+      </div>
+      <div class="inner-content col-md-4 col-xs-4 col-ss-12">
+        <button class="btn btn-nursing-secondary btn-nursing-alt">Read full bio</button>
+      </div>
+      </a>
+    </article>
+
+
+*/
+
+@media (min-width: @screen-xs-min) {
+  .box.profile.horizontal {
+    .inner-content {
+      padding-top: 2em;
+    }
+    img {
+      padding: .75em;
+    }
+  }
+}

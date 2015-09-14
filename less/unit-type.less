@@ -1,0 +1,254 @@
+// TYPE
+
+
+// FIX FOR FONT WEIGHT / FLEXSLIDER in WEBKIT
+// Removed due to accessibility issues
+html{ -webkit-font-smoothing: antialiased; } 
+// Prevent font scaling in Landscape orientation on iOS
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+  html { -webkit-text-size-adjust: 100%; }
+}
+/* Added to animated elements so that they don't change font-smoothing properties after animating  EDIT - nevermind, doesn't work.
+.wow {
+  backface-visibility: hidden;
+}
+*/ 
+
+// SELECTION COLOURS 
+::selection {
+  background: @unit-primary; /* WebKit/Blink */
+  color: white;
+}
+::-moz-selection {
+  background: @unit-primary; /* Gecko  */
+  color: white;
+}
+
+/* CUSTOM FONTS */
+// WebFonts
+// --------------------------
+.whitney-light(){
+  font-family: @sansFontFamily;
+  font-weight: 200; 
+  font-style: normal; }
+.whitney-book(){
+  font-family: @sansFontFamily;
+  font-weight: 400; 
+  font-style: normal; }
+.whitney-book-italic(){
+	font-family: @sansFontFamily;
+	font-weight: 400; 
+	font-style: italic; }
+.whitney-book-semibold() { 
+	font-family: @sansFontFamily; 
+	font-weight: 600; 
+	font-style: normal; }
+
+// adjust standard font weights
+.light {
+  font-weight: 200; 
+}
+.heavy {
+  font-weight: 600; 
+}
+
+
+
+/* DEFAULT TYPE STYLES */
+p {
+  margin: 0 0 1.5em;
+}
+
+hr {
+  border-top-color: @unit-accent-light;
+  margin-left: -1em;
+  margin-right: -1em;
+}
+
+.note {
+  font-size: .8em;
+  color: @gray;
+  padding-left: 2em;
+  position: relative;
+  margin-top: 2em;
+  &:after {
+    position: absolute;
+    content: "\F069";
+    font-family: @iconFontFamily;
+    top: 0;
+    left: 0;
+  }
+}
+.regular-italic,
+.serif,
+figure p,
+#main em {
+  .whitney-book-italic(); }
+#main h1,
+#main h2,
+#main h3,
+#main strong,
+.h1,
+.h2,
+.h3,
+.h4,
+.semi-bold,
+.bold {
+  .whitney-book-semibold();
+  &.subtitle { font-weight: 400; } }
+  
+// duplicate default title sizes as classes
+.h1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+.h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+.h3 {
+  font-size: 24px;
+  line-height: 30px;
+}
+.h4 {
+  font-size: 18px;
+  line-height: 30px;
+}
+.h5 {
+  font-size: 14px;
+  line-height: 20px;
+}
+.h6 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+hgroup {
+  h1 { margin-bottom: 0; }
+  h4 { margin-top: 0; }
+}
+
+.media_embed {
+  margin: 1.5em 0;
+}
+
+/* Checklists */
+
+ul.checklist>li,
+ol.checklist>li {
+  list-style-type: none;
+  padding-bottom: .5em;
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    font-family: @iconFontFamily;
+    font-size: 160%;
+    float: left;
+    top: -2px;
+    left: -30px;
+    color: @unit-primary;
+  }
+}
+ol.checklist>li:before {
+  content: "\f111";
+}
+ul.checklist>li:before {
+  content: "\f058";
+}
+ol.checklist {
+  counter-reset: my-counter;
+  > li:after {
+    content: counter(my-counter);
+    counter-increment: my-counter;
+    color: white;
+    left: -23px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    top: 0;
+  }
+}
+
+
+/*
+GOOGLE FONTS
+_______________________
+OPEN SANS --
+300 / 400 / 600
+400 italic
+
+DROID SERIF --
+400 / 700
+400 italic / 700 italic
+
+font-family: 'Droid Serif', serif;
+font-family: 'Open Sans', sans-serif; */
+//#main, 
+//#diptych-wrapper,
+//#prefooter-wrapper, 
+/*#main,
+.regular,
+.home-alt #ubc7-unit .nav.user-info >li > a {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400; }
+
+.regular-italic,
+.serif,
+figure p,
+#main em {
+  font-family: 'Droid Serif', serif;
+  font-style: italic;
+  font-weight: 400; }
+.bold-italic,
+.bold-serif {
+  font-family: 'Droid Serif', serif;
+  font-style: italic;
+  font-weight: 700; }
+
+.light  {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300; }
+
+#main h1,
+#main h2,
+#main h3,
+.hero h1,
+.hero h2,
+.hero h3,
+.h1,
+.h2,
+.h3,
+.bold {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  &.subtitle { font-weight: 400; } }
+#main strong,
+.semi-bold {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600; }
+.central-content ul, 
+.central-content ol { margin-bottom: 25px; }  
+.central-content ol li,
+.central-content ul li {
+  line-height: 1.25em;
+  padding-bottom: .5em; }
+
+label {
+  .h3;
+  font-size: 1.714em;
+  line-height: 2.143em; }
+  
+.lead {
+  font-weight: 300;
+}
+
+table th { .semi-bold; }
+
+p, ul, ol {
+  margin-bottom: 1.429em;
+}*/

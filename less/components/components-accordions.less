@@ -1,0 +1,107 @@
+/* CUSTOM ACCORDIONS 
+-------------------------------------------------- */
+
+/* These do not follow bootstrap markup and the namespace of this styling will collide with default bootstrap 
+
+  DEFAULT MARKUP REQUIRED:
+  --------------------------------------------------
+  
+    <div class="accordion">
+      <div class="accordion-tab" tabindex="0">Accordion Title</div>
+      <div class="accordion-content clearfix" style="display: none; ">
+        <p>Accordion Content</p>
+      </div>
+    </div>
+  
+  Also relies on js in custom.js:
+  --------------------------------------------------
+  
+    $('.accordion').find('.accordion-tab').click(function(e){
+      //Prevent content jump
+      e.preventDefault();
+      //Expand or collapse this panel
+      $(this).next().slideToggle('fast');
+      //Change the classes to trigger the icon change
+      $(this).parent().toggleClass('accordion-closed accordion-open');
+      //Optionally hide the other panels
+      //$(".accordion-content").not($(this).next()).slideUp('fast');
+    });
+    
+  
+  VARIABLES
+  --------------------------------------------------
+  @unit-primary - background colour when hovering over trigger
+  @unit-accent - border colours, alternate trigger text colour
+  @iconFontFamily - icon font
+
+
+  !!! TO DO: Consider changing class names to prevent namespace collisions !!!
+  --------------------------------------------------
+  
+*/
+.accordion,
+.accordion-formatted {
+  margin: 4px 0;
+  border: 1px solid @unit-accent;
+}
+// add some space before the first and after the last when in a run of text
+p + .accordion,
+div.list-group + .accordion,
+div.row + .accordion,
+div.media-group + .accordion,
+.accordion + p,
+.accordion + div.list-group,
+.accordion + div.row ,
+.accordion + div.media-group,
+p + .accordion-formatted,
+div.list-group + .accordion-formatted,
+div.row + .accordion-formatted,
+div.media-group + .accordion-formatted,
+.accordion-formatted + p,
+.accordion-formatted + div.list-group,
+.accordion-formatted + div.row ,
+.accordion-formatted + div.media-group {
+  margin-top: 1.5em;
+}
+.accordion-tab {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: .5em 3em .5em 1em;
+  font-weight: 700;
+  transition: background-color .3s ease, color .3s ease;
+  &:hover {
+    color: white;
+    background-color: @unit-primary;
+  }
+  &:focus {
+  outline: 0;
+  }
+  &:after {
+    position: absolute;
+    // add 'plus' icon - see http://fontawesome.github.io/Font-Awesome/3.2.1/icons/ for alternates (click on icon to find unicode)
+    content: "\F055";
+    font-family: @iconFontFamily;
+    padding: .4em;
+    font-size: 1.4em;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+  span {
+    color: @unit-accent;
+  }
+}
+.accordion-content {
+  //padding: 9px 15px;
+  padding: 1.5em;
+  border-top: 1px solid @unit-accent;
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+.js .accordion-closed .accordion-content { display: none; }
+.accordion-open .accordion-tab:after {
+  // add 'minus' icon - see http://fontawesome.github.io/Font-Awesome/3.2.1/icons/ for alternates (click on icon to find unicode)
+  content: "\F056";
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h2 id="2.0bootstrapjsphilosophy">2.0 BOOTSTRAP JS PHILOSOPHY</h2>
+
+<p>These are the high-level design rules which guide the development of Bootstrap&#8217;s plugin apis.</p>
+
+<hr />
+
+<h3 id="data-attributeapi">DATA-ATTRIBUTE API</h3>
+
+<p>We believe you should be able to use all plugins provided by Bootstrap purely through the markup API without writing a single line of JavaScript. This is Bootstrap&#8217;s first class API.</p>
+
+<p>We acknowledge that this isn&#8217;t always the most performant and it may sometimes be desirable to turn this functionality off altogether. Therefore, as of 2.0 we provide the ability to disable the data attribute API by unbinding all events on the body namespaced with <code>'data-api'</code>. This looks like this:</p>
+
+<pre><code>$('body').off('.data-api')
+</code></pre>
+
+<p>To target a specific plugin, just include the plugins name as a namespace along with the data-api namespace like this:</p>
+
+<pre><code>$('body').off('.alert.data-api')
+</code></pre>
+
+<hr />
+
+<h3 id="programaticapi">PROGRAMATIC API</h3>
+
+<p>We also believe you should be able to use all plugins provided by Bootstrap purely through the JavaScript API.</p>
+
+<p>All public APIs should be single, chainable methods, and return the collection acted upon.</p>
+
+<pre><code>$(&quot;.btn.danger&quot;).button(&quot;toggle&quot;).addClass(&quot;fat&quot;)
+</code></pre>
+
+<p>All methods should accept an optional options object, a string which targets a particular method, or null which initiates the default behavior:</p>
+
+<pre><code>$(&quot;#myModal&quot;).modal() // initialized with defaults
+$(&quot;#myModal&quot;).modal({ keyboard: false }) // initialized with no keyboard
+$(&quot;#myModal&quot;).modal('show') // initializes and invokes show immediately
+</code></pre>
+
+<hr />
+
+<h3 id="options">OPTIONS</h3>
+
+<p>Options should be sparse and add universal value. We should pick the right defaults.</p>
+
+<p>All plugins should have a default object which can be modified to affect all instances&#8217; default options. The defaults object should be available via <code>$.fn.plugin.defaults</code>.</p>
+
+<pre><code>$.fn.modal.defaults = { … }
+</code></pre>
+
+<p>An options definition should take the following form:</p>
+
+<pre><code>*noun*: *adjective* - describes or modifies a quality of an instance
+</code></pre>
+
+<p>Examples:</p>
+
+<pre><code>backdrop: true
+keyboard: false
+placement: 'top'
+</code></pre>
+
+<hr />
+
+<h3 id="events">EVENTS</h3>
+
+<p>All events should have an infinitive and past participle form. The infinitive is fired just before an action takes place, the past participle on completion of the action.</p>
+
+<pre><code>show | shown
+hide | hidden
+</code></pre>
+
+<p>All infinitive events should provide preventDefault functionality. This provides the abililty to stop the execution of an action.</p>
+
+<pre><code>$('#myModal').on('show', function (e) {
+    if (!data) return e.preventDefault() // stops modal from being shown
+})
+</code></pre>
+
+<hr />
+
+<h3 id="constructors">CONSTRUCTORS</h3>
+
+<p>Each plugin should expose its raw constructor on a <code>Constructor</code> property &#8211; accessed in the following way:</p>
+
+<pre><code>$.fn.popover.Constructor
+</code></pre>
+
+<hr />
+
+<h3 id="dataaccessor">DATA ACCESSOR</h3>
+
+<p>Each plugin stores a copy of the invoked class on an object. This class instance can be accessed directly through jQuery&#8217;s data API like this:</p>
+
+<pre><code>$('[rel=popover]').data('popover') instanceof $.fn.popover.Constructor
+</code></pre>
+
+<hr />
+
+<h3 id="dataattributes">DATA ATTRIBUTES</h3>
+
+<p>Data attributes should take the following form:</p>
+
+<ul>
+<li>data-{{verb}}={{plugin}} - defines main interaction</li>
+<li>data-target || href^=# - defined on &#8220;control&#8221; element (if element controls an element other than self)</li>
+<li>data-{{noun}} - defines class instance options</li>
+</ul>
+
+<p>Examples:</p>
+
+<pre><code>// control other targets
+data-toggle=&quot;modal&quot; data-target=&quot;#foo&quot;
+data-toggle=&quot;collapse&quot; data-target=&quot;#foo&quot; data-parent=&quot;#bar&quot;
+
+// defined on element they control
+data-spy=&quot;scroll&quot;
+
+data-dismiss=&quot;modal&quot;
+data-dismiss=&quot;alert&quot;
+
+data-toggle=&quot;dropdown&quot;
+
+data-toggle=&quot;button&quot;
+data-toggle=&quot;buttons-checkbox&quot;
+data-toggle=&quot;buttons-radio&quot;
+</code></pre>
+
+</body>
+</html>
