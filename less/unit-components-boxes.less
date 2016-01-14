@@ -1,0 +1,161 @@
+/* BOXES
+-------------------------------------------------- */
+
+/*
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+    <article class="box with-image">
+      <a href="#"><img src="img/demo.jpg" alt="" /></a>
+      <div class="inner-content">
+        <h3>This is the title of a Component Box</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+        <p><a href="#" class="btn-plain">Read More</a></p>
+      </div>
+    </article>
+    
+  
+  SAMPLE MARKUP: ALTERNATE
+  --------------------------------------------------
+  - when content to be displayed as a featurette 
+  - borrows from 'MEDIA' component (components-media.less)
+  - pushes content to right of image.
+  
+  
+  <article class="box listing media card">
+    <a class="pull-left" href="#"><img src="img/demo-small1.jpg" alt="" class="media-object" /></a>
+    <div class="inner-content media-body">
+      <h3>This is the title of a Component Box</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+      <p><a href="#" class="btn btn-plain">Read More</a></p>
+    </div>
+  </article>
+  
+  
+  CUSTOM BOX CLASSES:
+  --------------------------------------------------
+  
+  .box : the container - usually an article
+  .card : adds a border radius and drop shadow to the card
+  .listing : provides alternate styling to .box class
+  .inner-content : wraps the text areas
+  .read-more : adds styling a link to full content
+  .media, .media-object and .media-body : see components-media.less
+  .with-image : added when the box has an image to create sufficient padding
+  .bg-light : alternate colour styling for box
+  .bg-dark : alternate colour styling for box
+  
+  
+  VARIABLES:
+  --------------------------------------------------
+  @unit-primary - read more link colour
+  @unit-accent-light - background colour of box
+  @unit-accent - card border colour
+  @unit-accent-dark 
+  @border-radius-large - sets the border radius for the card style
+  
+*/
+
+.box {
+  background-color: inherit;
+  padding: .75em;
+  border: 1px solid @unit-accent;
+  margin-bottom: 1.5em;
+  &:hover {
+    background-color: inherit;
+  }
+  .inner-content {
+    padding: 0;
+  }
+  &.with-image.condensed {
+    padding: 0;
+    font-size: 1em;
+    .inner-content {
+      padding: .75em;
+    }
+    &:hover .inner-content{
+      border: 1px solid @unit-accent;
+      padding: .688em;
+    }
+  }
+  &.with-image .inner-content {
+    padding-top: 2em;
+  }
+  .btn-plain {
+    padding-left: 0;
+  }
+  p:last-child {
+    margin-bottom: .75em;
+  }
+}
+
+.bg-light .box,
+.box.bg-light {
+  background-color: @unit-accent-light;
+  border-color: @unit-accent-light;
+  color: @ubcBlue;
+  h3, 
+  a, 
+  .btn-plain {
+    color: @ubcBlue;
+  }
+  a.btn-unit:hover,
+  a.btn-unit-reverse {
+    color: white;
+  }
+  a:hover,
+  .btn-plain:hover,
+  a.btn-unit-reverse:hover {
+    color: @unit-accent-dark;
+  }
+}
+.bg-dark .box,
+.box.bg-dark {
+  background-color: @unit-accent;
+  border-color: @unit-accent;
+  color: white;
+  h3, 
+  a, 
+  .btn-plain {
+    color: white;
+  }
+  a:hover,
+  .btn-plain:hover {
+    color: @unit-accent-light;
+  }
+}
+
+.card {
+  border-radius: 0;
+  border: 1px solid @unit-accent;
+  box-shadow: none;
+}
+
+@media (max-width: @screen-ss-max) {
+  .box.listing .pull-left {
+    float: none;
+    max-width: 100%;
+    .center-block(); 
+    padding: 1em 1em 0;
+  }
+}
+
+.box.teaser {
+  padding: 2em 0;
+  font-size: 1em;
+  border: none;
+  border-top: 1px solid @unit-accent-light;
+  /*
+  &:last-child {
+    border-bottom: 1px solid @vpriBlueLight;
+    margin-bottom: 1.75em;
+  }
+  */
+}
+.meta {
+  font-weight: bold;
+  color: @unit-accent-dark;
+  display: block;
+  margin: -.5em 0 1.5em 0;
+}

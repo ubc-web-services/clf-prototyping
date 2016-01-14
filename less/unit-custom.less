@@ -1,81 +1,68 @@
-// Core variables and mixins
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "base.less";
-@import "utilities.less";
+/** FILE FOR CONCATENATING ALL LESS FILES - no styles should be added here directly **/
+
+/* CORE VARIABLES AND MIXINS */
+@import "variables.less"; // Declare default colors, font-sizes, etc
 @import "mixins.less";
-@import "type.less";
-@import "components.less";
-@import "grid-extras.less";
-@import "mobile-first-layouts.less";
 
-/* ALL CUSTOM UNIT STYLES IN HERE */
+/* GENERAL UNTILITIES / LAYOUT */
+@import "utilities.less";
+@import "clf/clf-base.less"; // Drupal specific styles & overrides
+@import "layout/grid-mixins.less"; // from bootstrap3 - add this in to generate BS3 grids
+@import "layout/grid.less"; // add bootstrap3 grid - add this in to generate BS3 gids
+@import "layout/mobile-layouts-box.less";
+//@import "layout/mobile-first-layouts.less";
+@import "unit-mobile-layouts-box.less";
 
+/* LIBRARIES */
+@import "lib/formstone/formstone.less"; 
+@import "lib/animate/animate.less";
 
+/* BASE COMPONENTS */
+@import "components/components-ajax.less";
+@import "components/components-blockquotes.less";
+@import "components/components-buttons.less";
+//@import "components/components-pills.less";
+@import "components/components-badges.less";
+@import "components/components-tags.less";
+@import "components/components-forms.less";
+@import "components/components-list-group.less";
+@import "components/components-tables.less";
+@import "components/components-untables.less";
+@import "components/components-images-in-text.less";
+@import "components/components-media.less";
+@import "components/components-pager.less";
+@import "components/components-accordions.less";
+@import "components/components-datepicker.less";
+@import "components/components-boxes.less";
+@import "components/components-flexslider.less";
+@import "components/components-featured-content.less";
+@import "components/components-supporting-content.less";
 
+/* UNIT VARIABLES */
+@import "unit-variables.less"; // Modify this file to add additional variables or interrupt previously declared variables before processing
 
-/* Custom classes
--------------------------------------------------- */
+/* UNIT SPECIFIC COMPONENTS */
+@import "unit-components-blockquotes.less";
+@import "unit-components-images-in-text.less";
+@import "unit-components-buttons.less";
+@import "unit-components-accordions.less";
+@import "unit-components-tags.less";
+@import "unit-components-boxes.less";
+@import "unit-components-forms.less";
 
-/* UNIT COLOURS
-Unit Bar background gradient and box shadow */
-#ubc7-unit {
-  background: @ccpcyan; 
-  /* replace with unit colour (or use theme settings) */
-  box-shadow: inset 0px -10px 10px -10px #333333;
-  -moz-box-shadow: inset 0px -10px 10px -10px #333333;
-  -webkit-box-shadow: inset 0px -10px 10px -10px #333333; }
-
-
-#my-carousel { background: @black15; }
-
-#navbar { display: none !important; }
-
-/* UNIT SPECIFIC
-Typography
--------------------------------------------------- */
-
-
-
-/* MEDIA QUERIES 
-(these are example queries to get you started - these can be maodified to suit)
--------------------------------------------------- */
-  
-@media screen and (min-width:1200px) {
-  // START 1200 STYLES 
-  
-  // END 1200 STYLES 
-}
-
-
-@media screen and (max-width:979px) {
-  // START 768-979 STYLES 
-  
-  // END 768-979 STYLES 
-}
-
-
-@media screen and (max-width: 767px) {
-  // START >767 STYLES 
-  
-  // END >767 STYLES 
-}
-
-
-@media screen and (max-width: 720px) {
-  // START >720 STYLES 
-  
-  // END >720 STYLES 
-}
-
-
-@media screen and (max-width: 520px) {
-  // START >520 STYLES
-  
-  // END >520 STYLES
-}
-
-@media screen and (max-width: 480px) {
-  // START >480 STYLES  
-  
-  // END >480 STYLES
-}
+/* UNIT STYLES */
+@import "unit-type.less";
+@import "unit-styles.less";
+ 
+/*** FOR PROTOTYPE ONLY - remove from production version ***/
+ .color-swatch {
+   padding: 30px;
+   border-radius: 50%;
+   width: 180px;
+   height: 180px;
+   float: left;
+   margin: 0 .5em 1em 0;
+   font-size: .75em;
+   line-height: 1em;
+   text-align: center;
+ }

@@ -1,0 +1,72 @@
+/* AJAX Styles for Drupal
+-------------------------------------------------- */
+
+/* Variables Used 
+
+@unitPrimary : replace the throbber icon colour with the unit colour
+
+*/
+
+/* GENERAL STYLES 
+- replace the default Drupal ajax throbber because it's ugly
+*/
+.ajax-progress-throbber {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background:  rgba(0,0,0,.5);
+}
+.ajax-progress-throbber .message {
+	display: none;
+}
+.ajax-progress-throbber .throbber {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 3em;
+	height: 3em;
+	margin: -1.5em 0 0 -1.5em;
+	background: none;
+	background-color: #fff;
+	box-shadow: 0px 0px 5px 6px rgba(0,0,0,.1);
+	border-radius: 5px;
+	opacity: 0.8;
+	&:after {
+		font-size: 2em;
+		position: absolute;
+		display: block;
+		color: @unitPrimary;
+		text-align: center;
+		left: 10px;
+		top: 12px;
+		content:"\f110";
+		font-family: 'Fontawesome';
+		-webkit-animation: spin 1000ms infinite linear;
+		animation: spin 1000ms infinite linear;
+	}
+}
+
+// join our spin class (hah!)
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}

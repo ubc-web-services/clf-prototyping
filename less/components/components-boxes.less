@@ -1,0 +1,107 @@
+/* BOXES
+-------------------------------------------------- */
+
+/*
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+    <article class="box">
+      <a href="#"><img src="img/demo.jpg" alt="" /></a>
+      <div class="inner-content">
+        <h3>This is the title of a Component Box</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+        <p><a href="#" class="read-more pull-right">Read More</a></p>
+      </div>
+    </article>
+    
+  
+  SAMPLE MARKUP: ALTERNATE
+  --------------------------------------------------
+  - when content to be displayed as a featurette 
+  - borrows from 'MEDIA' component (components-media.less)
+  - pushes content to right of image.
+  
+  
+  <article class="box listing media card">
+    <a class="pull-left" href="#"><img src="img/demo-small1.jpg" alt="" class="media-object" /></a>
+    <div class="inner-content media-body">
+      <h3>This is the title of a Component Box</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+      <p><a href="#" class="read-more">Read More</a></p>
+    </div>
+  </article>
+  
+  
+  CUSTOM BOX CLASSES:
+  --------------------------------------------------
+  
+  .box : the container - usually an article
+  .card : adds a border radius and drop shadow to the card
+  .listing : provides alternate styling to .box class
+  .inner-content : wraps the text areas
+  .read-more : adds styling a link to full content
+  .media, .media-object and .media-body : see components-media.less
+  
+  
+  VARIABLES:
+  --------------------------------------------------
+  @unit-primary - read more link colour
+  @unit-accent-light - background colour of box
+  @unit-accent - card border colour
+  @border-radius-large - sets the border radius for the card style
+  
+*/
+
+.box {
+  background-color: @unit-accent-light;
+  font-size: .875em;
+  line-height: 1.5em;
+  transition: background-color .3s ease;
+  &:hover {
+    background-color: darken(@unit-accent-light, 5%);
+  }
+  .inner-content {
+    padding: 1em;
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.3em;
+    line-height: 1.2em;
+  }
+  .read-more {
+    color: @unit-primary;
+    .bold;
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    &:hover {
+      color: lighten(@unit-primary, 10%);
+    }
+  }
+  &.listing {
+    .pull-left {
+      max-width: 30%;
+      margin: 1em;
+    }
+    .media-object {
+      border-left: none;
+    }
+  }
+}
+
+.card {
+  border-radius: @border-radius-large;
+  border: 1px solid @unit-accent;
+  box-shadow: 0px 2px 5px #ddd;
+}
+
+@media (max-width: @screen-ss-max) {
+  .box.listing .pull-left {
+    float: none;
+    max-width: 100%;
+    .center-block(); 
+    padding: 1em 1em 0;
+  }
+}

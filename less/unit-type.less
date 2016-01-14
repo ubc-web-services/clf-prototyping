@@ -1,0 +1,228 @@
+// TYPE
+
+
+// FIX FOR FONT WEIGHT / FLEXSLIDER in WEBKIT
+// Removed due to accessibility issues
+html{ -webkit-font-smoothing: antialiased; } 
+// Prevent font scaling in Landscape orientation on iOS
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+  html { -webkit-text-size-adjust: 100%; }
+}
+/* Added to animated elements so that they don't change font-smoothing properties after animating  EDIT - nevermind, doesn't work.
+.wow {
+  backface-visibility: hidden;
+}
+*/ 
+
+// SELECTION COLOURS 
+::selection {
+  background: @unitPrimary; /* WebKit/Blink */
+  color: white;
+}
+::-moz-selection {
+  background: @unitPrimary; /* Gecko  */
+  color: white;
+}
+
+/* CUSTOM FONTS */
+// WebFonts
+// --------------------------
+.whitney-light(){
+  font-family: @sansFontFamily;
+  font-weight: 200; 
+  font-style: normal; }
+.whitney-book(){
+  font-family: @sansFontFamily;
+  font-weight: 400; 
+  font-style: normal; }
+.whitney-book-italic(){
+	font-family: @sansFontFamily;
+	font-weight: 400; 
+	font-style: italic; }
+.whitney-book-semibold() { 
+	font-family: @sansFontFamily; 
+	font-weight: 600; 
+	font-style: normal; }
+
+// adjust standard font weights
+.light {
+  font-weight: 200; 
+}
+.bold,
+.heavy {
+  font-weight: 600; 
+}
+
+/* DEFAULT LINK STYLES */
+a:link,
+a:visited {
+  color: @linkColor;
+}
+a:hover,
+a:active {
+  color: @linkColorHover;
+  text-decoration: underline;
+}
+
+
+
+/* DEFAULT TYPE STYLES */
+p {
+  margin: 0 0 1.5em;
+}
+.lead {
+  font-size: 26px;
+  line-height: 43px;
+}
+
+hr {
+  border-top-color: @unit-accent-light;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.note {
+  font-size: .8em;
+  color: @gray;
+  padding-left: 2em;
+  position: relative;
+  margin-top: 2em;
+  &:after {
+    position: absolute;
+    content: "\F069";
+    font-family: @iconFontFamily;
+    top: 0;
+    left: 0;
+  }
+}
+.non-clf h1,
+.non-clf h2,
+.non-clf h3,
+.non-clf h4,
+.non-clf h5,
+.non-clf h6 {
+  color: @ubcBlue;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  &.plaincase {
+    text-transform: none;
+  }
+  &.strong {
+    .whitney-book-semibold();
+  }
+}
+.non-clf h1 {
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 60px;
+}
+.non-clf h5,
+.non-clf h6 {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.regular-italic,
+.serif,
+figure p,
+#main em {
+  .whitney-book-italic(); }
+#main h1 {
+  .whitney-book();
+}
+#main h2,
+#main h3,
+#main strong,
+.h1,
+.h2,
+.h3,
+.h4,
+.semi-bold,
+.bold {
+  .whitney-book-semibold();
+  &.subtitle { font-weight: 400; } }
+
+  
+// duplicate default title sizes as classes
+.h1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+.h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+.h3 {
+  font-size: 24px;
+  line-height: 30px;
+}
+.h4 {
+  font-size: 18px;
+  line-height: 30px;
+}
+.h5 {
+  font-size: 14px;
+  line-height: 20px;
+}
+.h6 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
+  &.grey {
+    color: #696969;
+  }
+}
+
+h1.page-header {
+  border-bottom: none;
+}
+
+hgroup {
+  h1 { margin-bottom: 0; }
+  h4 { margin-top: 0; }
+}
+
+.media_embed {
+  margin: 1.5em 0;
+}
+
+/* Checklists */
+ol, ul {
+  margin-bottom: 1.5em;
+}
+ul.checklist>li,
+ol.checklist>li {
+  list-style-type: none;
+  padding-bottom: .5em;
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    font-family: @iconFontFamily;
+    font-size: 160%;
+    float: left;
+    top: -2px;
+    left: -30px;
+    color: @unit-primary;
+  }
+}
+ol.checklist>li:before {
+  content: "\f111";
+}
+ul.checklist>li:before {
+  content: "\f058";
+}
+ol.checklist {
+  counter-reset: my-counter;
+  > li:after {
+    content: counter(my-counter);
+    counter-increment: my-counter;
+    color: white;
+    left: -23px;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    top: 0;
+  }
+}

@@ -1,0 +1,57 @@
+/* SUPPORTING CONTENT
+-------------------------------------------------- */
+
+/*
+
+  USAGE
+  --------------------------------------------------
+  
+  Intended to be used in an aside or sub-region of the page to provide additional supporting content (metadata, additional links, etc)
+  
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+  <section class="supporting">
+    <header>
+      <h3>Some Title</h3>
+    </header>
+    <div class="content">
+      etc...
+    </div>
+  </section>
+    
+  
+  CUSTOM SUPPORTING CONTENT CLASSES:
+  --------------------------------------------------
+  .supporting - triggers the styles below
+  
+  
+  VARIABLES USED:
+  --------------------------------------------------
+  @unit-primary - colour for supporting content's title (H3)
+  @unit-accent-light - border colour below supporting content's title
+  @baseFontSize - sets the font size (and in this use case, reduces it)
+  
+*/
+
+
+.supporting {
+  margin: 2em 0;
+  //font-size:  (@baseFontSize - 2);
+  header {
+    border-bottom: 2px solid @unit-accent-light;
+    margin-bottom: .5em;
+    h3 {
+      color: @unit-primary;
+      margin-bottom: 0;
+      font-weight: 500;
+      font-size: 1.5em;
+      line-height: 1.125em;
+    }
+  }
+  .content {
+    margin-top: 0;
+    padding: 0 .5em;
+  }
+}

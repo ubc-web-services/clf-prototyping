@@ -1,0 +1,171 @@
+/* BUTTONS
+-------------------------------------------------- */
+
+/*
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+  see: http://getbootstrap.com/2.3.2/base-css.html#buttons
+  
+  
+  CUSTOM NURSING BUTTON CLASSES:
+  --------------------------------------------------
+  
+  .btn-unit : use in place of btn-primary
+  .btn-unit-secondary : use in place of btn-secondary
+  .btn-unit-alt : adds alternate styling to the two styles above 
+    (usage: class="btn btn-unit btn-nursing-alt")
+  .btn-unit-reverse : adds alternate styling to the two styles above 
+    (usage: class="btn btn-unit btn-unit-reverse")
+  .btn-multiline : adds styling for descriptive text in buttons via a span
+  .btn-plain : adds a simplified button style (usage: class="btn btn-plain")
+  
+  
+  VARIABLES
+  --------------------------------------------------
+  @unit-primary 
+  @unit-secondary
+  @unit-accent
+  @unit-accent-dark
+  @unit-accent-light
+  @btnBorderRadius - add default button radius
+  
+*/
+
+/* GENERAL STYLES 
+- utility class (.non-clf) added to limit the styling to regions with the 'non-clf' class applied
+*/
+
+.non-clf .btn {
+  font-weight: bold;
+  border-radius: @btnBorderRadius;
+  background-image:none;
+  box-shadow: none;
+  transition: background-color .5s ease, border-color .5s ease, color .5s ease;
+  padding: .5em 1.5em;
+}
+
+/* BUTTON GROUPS */
+// remove borders from button group buttons
+.non-clf .btn-group>.btn {
+  border-radius:  0;
+}
+// fix for centering button groups
+.non-clf .btn-group.text-center {
+  display: block;
+}
+// put back borders on first button group button
+.non-clf .btn-group>.btn:first-child {
+  border-bottom-left-radius: @btnBorderRadius;
+  border-top-left-radius: @btnBorderRadius;
+}
+// put back borders on last button group button
+.non-clf .btn-group>.btn:last-child {
+  border-bottom-right-radius: @btnBorderRadius;
+  border-top-right-radius: @btnBorderRadius;
+}
+// add a separator between buttons
+.btn-group>[class*="btn-unit"] {
+  position: relative;
+  &:after {
+    position: absolute;
+    width: 1px;
+    height: 60%;
+    content: "";
+    display: block;
+    background-color: rgba(255, 255, 255, .4);
+    left: 0;
+    top: 20%;
+  }
+  // ...and hide it for the first one
+  &:first-child:after {
+    display: none;
+  }
+}
+
+
+/* ICON FONT ADJUSTMENTS FOR BUTTONS */
+.btn >span.icon {
+  font-size: 120%;
+}
+
+
+/* CUSTOM UNIT BUTTON STYLES 
+-------------------------------------------------- */
+// btn-unit used as a base so it doesn't conflict with Bootstrap button styles.
+/* PRIMARY BUTTONS */
+.btn-unit {
+  color: white;
+  background-color: @unit-primary;
+  border-color: @unit-primary;
+  &:hover {
+    background-color: @unit-secondary;
+    border-color: @unit-secondary;
+    // use the 'animated' and an animate class to trigger an animation on hover - for example: [note: this assumes you have enabled the correct animation less file in animate.less]
+    //.animated;
+    //.pulse;
+  }
+  &.btn-unit-alt {
+    &:hover {
+      color: @unit-primary;
+      background-color: white;
+    }
+  }
+  &.btn-unit-reverse {
+    color: @unit-primary;
+    background-color: white;
+    &:hover {
+      color: white;
+      background-color: @unit-primary;
+      border-color: @unit-primary;
+    }
+  }
+}
+
+/* SECONDARY BUTTONS */
+.btn-unit-secondary {
+  color: white;
+  background-color: @unit-secondary;
+  border-color: @unit-secondary;
+  &:hover {
+    background-color: @unit-primary;
+    border-color: @unit-primary;
+  }
+  &.btn-unit-alt {
+    &:hover {
+      color: @unit-secondary;
+      background-color: white;
+    }
+  }
+  &.btn-unit-reverse {
+    color: @unit-secondary;
+    background-color: white;
+    &:hover {
+      color: white;
+      background-color: @unit-secondary;
+      border-color: @unit-secondary;
+    }
+  }
+}
+
+/* MULTILINE BUTTONS */
+.btn-multiline span {
+  display: block;
+  font-weight: normal;
+}
+.btn-large.btn-multiline span {
+  font-size: 85%;
+}
+
+/* PLAIN BUTTONS (for alternate use) */
+.btn-plain {
+  background-color: white;
+  border-color: @unit-accent-light;
+  color: @unit-primary;
+  &:hover {
+    border-color: @unit-accent-light;
+    background-color: @unit-accent-light;
+    color: @unit-primary;
+  }
+}
