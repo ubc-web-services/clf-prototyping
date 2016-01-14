@@ -1,0 +1,190 @@
+/* BUTTONS
+-------------------------------------------------- */
+
+/*
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+  see: http://getbootstrap.com/2.3.2/base-css.html#buttons
+  
+  
+  CUSTOM NURSING BUTTON CLASSES:
+  --------------------------------------------------
+  
+  .btn-unit : use in place of btn-primary
+  .btn-unit-secondary : use in place of btn-secondary
+  .btn-unit-alt : adds alternate styling to the two styles above 
+    (usage: class="btn btn-unit btn-nursing-alt")
+  .btn-unit-reverse : adds alternate styling to the two styles above 
+    (usage: class="btn btn-unit btn-unit-reverse")
+  .btn-multiline : adds styling for descriptive text in buttons via a span
+  .btn-plain : adds a simplified button style (usage: class="btn btn-plain")
+  
+  
+  VARIABLES
+  --------------------------------------------------
+  @unit-primary 
+  @unit-secondary
+  @unit-accent
+  @unit-accent-dark
+  @unit-accent-light
+  @btnBorderRadius - add default button radius
+  
+*/
+
+/* GENERAL STYLES 
+- utility class (.non-clf) added to limit the styling to regions with the 'non-clf' class applied
+*/
+
+.non-clf .btn {
+  font-weight: normal;
+  text-transform: uppercase;
+  &.btn-primary,
+  &.btn-info,
+  &.btn-warning,
+  &.btn-inverse {
+    color: #222;
+  }
+  &.btn-secondary,
+  &.btn-danger {
+    color: white;
+  }
+  &.btn-primary {
+    border-color: @unit-primary;
+    background-color: @unit-primary;
+    &:hover {
+      background-color: darken(@unit-primary, 12%);
+    }
+  }
+  &.btn-primary.form-submit,
+  &.btn-secondary.form-submit,
+  &.btn-inverse.form-submit {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+.btn.btn-unit,
+.btn.btn-unit-secondary {
+  padding: .5em 2em .375em 1.25em;
+}
+.btn.btn-plain {
+  padding: .5em 2em .375em 0;
+}
+.non-clf .btn.btn-inverse:hover {
+  color: white;
+}
+
+// remove the content from button groups
+.btn-group>[class*=btn-unit] {
+  padding: .5em 1.25em .375em 1.25em;
+}
+.btn-group>[class*=btn-unit]:after {
+  background-color: transparent;
+}
+
+
+/* CUSTOM UNIT BUTTON STYLES 
+-------------------------------------------------- */
+// btn-unit used as a base so it doesn't conflict with Bootstrap button styles.
+/* PRIMARY BUTTONS */
+.btn-unit {
+  color: @unitAccent;
+  background-color: transparent;
+  border-color: @unitAccent;
+  position: relative;
+  &:hover {
+    background-color: @unitAccent;
+    color: white;
+  }
+  &.btn-unit-alt {
+    color: white;
+    border-color: white;
+    &:hover {
+      background-color: rgba(255,255,255, .2);
+      color: white;
+    }
+  }
+  &.btn-unit-reverse {
+    color: white;
+    background-color: @unitAccent;
+    &:hover {
+      color: @unitAccent;
+      background-color: white;
+    }
+  }
+}
+
+/* ICON */
+.btn-unit:after,
+.btn-unit-secondary:after,
+.btn-plain:after {
+  //position: absolute;
+  font-family: @iconFontFamily;
+  right: 1.250em;
+  //top: 0.375em;
+  display: block;
+  content: '\F105';
+  .vertical-align();
+  position: absolute;
+}
+
+/* SECONDARY BUTTONS */
+.btn-unit-secondary {
+  color: @unit-secondary !important;
+  background-color: transparent;
+  border-color: @unit-secondary;
+  position: relative;
+  &:hover {
+    background-color: @unit-secondary;
+    border-color: @unit-secondary;
+    color: white !important;
+  }
+  &.btn-unit-alt {
+    color: white !important;
+    border-color: white;
+    &:hover {
+      background-color: rgba(255,255,255, .2);
+      color: white;
+    }
+  }
+  &.btn-unit-reverse {
+    color: white !important;
+    background-color: @unit-secondary;
+    &:hover {
+      background-color: white;
+      color: @unit-secondary !important;
+    }
+  }
+}
+
+/* MULTILINE BUTTONS */
+.btn-multiline {
+  padding-right: 1.25em !important;
+  &:after {
+    content: '';
+  }
+  span {
+    display: block;
+    font-weight: normal;
+  }
+}
+.btn-large.btn-multiline span {
+  font-size: 85%;
+  text-transform: none;
+}
+
+/* PLAIN BUTTONS (for alternate use) */
+.btn-plain {
+  background-color: transparent;
+  border: none;
+  color: @unit-primary;
+  position: relative;
+  text-decoration: underline;
+  &:hover {
+    background-color: transparent;
+    color: @unit-secondary;
+    text-decoration: underline;
+  }
+}

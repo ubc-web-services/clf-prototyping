@@ -3,13 +3,13 @@
 
 /* 
 
-  Custom styles for the Alpha pager rendered via views
+  Styles for the Views Load More ajax pager
 
   SAMPLE MARKUP:
   --------------------------------------------------
   
   <div class="item-list">
-    <ul class="views-summary clearfix text-center center-block">
+    <ul class="pager pager-load-more">
       <li>
         <a href="#">A</a></li>
       <li>
@@ -21,20 +21,19 @@
 
 */
 
-.views-summary {
-  padding: .75em 0 1.25em 0;
-}
-.views-summary li {
-  padding: 0 .25em .25em 0;
-}
-.views-summary a { 
-  display: inline-block; 
-  padding: .25em .5em;
-  border: 1px solid @nursingLightGrey;
-  text-decoration: none;
-  &:hover {
-    color: white;
-    background-color: @ubcBlue;
-    border-bottom-color: @ubcBlue;
+ul.pager-load-more {
+  border-top: 1px solid @vpriBlueLight;
+  padding-top: 2em;
+  text-align: left;
+  .btn-unit.btn-unit-reverse {
+    color: white !important;
+    background-color: @unitAccent !important;
+    border-color: @unitAccent !important;
+    &:hover {
+      color: @unitAccent !important;
+      background-color: white !important;
+      border-color: @unitAccent !important;
+    }
   }
 }
+

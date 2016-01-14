@@ -1,0 +1,21 @@
+/* SVG
+-------------------------------------------------- */
+
+/* Preferred embedding method is via <object> tag. 
+
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+  <object type="image/svg+xml" data="my_SVG_file.svg">
+      <!-- fallback here (<img> referencing a PNG version of the graphic, for example, or text for a logo) -->
+  </object>
+  
+  SVG FORMATTING
+  --------------------------------------------------
+  
+*/
+/* fix for IE */
+object {
+    //width: 100%;
+    max-width: 100%;
+}

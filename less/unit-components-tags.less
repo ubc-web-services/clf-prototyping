@@ -1,0 +1,69 @@
+/* TAGS
+-------------------------------------------------- */
+
+/* 
+
+  CUSTOM STYLES 
+  --------------------------------------------------
+  
+  .tags : add to ul / ol to convert into a list of tag style items (with or without links). Will require .clearfix on ul/ol for proper float behaviour  
+          
+  SAMPLE MARKUP:
+  --------------------------------------------------
+  
+    <ul class="tags clearfix">
+      <li><a href="#">item one</a></li>
+      <li><a href="#">item two</a></li>   
+      <li><a href="#">item three</a></li>
+    </ul>
+  
+  
+  VARIABLES:
+  --------------------------------------------------
+  @textColor - sets the default tag text colour
+  @unit-accent - sets the active and hover background colours
+  @unit-accent-light - sets the default background colour
+  @baseFontSize - sets the font size (and in this use case, reduces it)
+
+*/
+
+
+.tags {
+  li {
+    color: @unitAccent;
+    border: 1px solid @unitAccent;
+    background-color: inherit;
+    border-radius: @btnBorderRadius;
+    text-transform: lowercase;
+    &.active {
+      background-color: inherit;
+      color: inherit;
+      &:hover {
+        background-color: inherit;
+      }
+    }
+    &:hover {
+      background-color: inherit;
+    }
+    
+    a {
+      color: @unitAccent;
+    }
+  }
+}
+
+.tags.tags-events li {
+  color: @unit-secondary;
+  border: 1px solid @unit-secondary;
+  a {
+    color: @unit-secondary;
+  }
+}
+
+.tags.tags-research li {
+  color: @ubcBlue;
+  border: 1px solid @ubcBlue;
+  a {
+    color: @ubcBlue;
+  }
+}

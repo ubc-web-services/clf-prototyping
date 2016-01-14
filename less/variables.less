@@ -118,7 +118,6 @@
 @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
 @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
 
-// you can add more here as needed
 
 
 
@@ -146,7 +145,7 @@
 @ubcLightestGreyRGBA:     rgba(215,224,231,1);
 @lightBlueRGBA:           rgba(28,117,188,1);
 
-// Grays
+// Greys
 // -------------------------
 @black:                 #000;
 @grayDarker:            #222;
@@ -156,7 +155,8 @@
 @grayLighter:           #eee;
 @white:                 #fff;
 
-// greyscale - improved
+// Greyscale
+// -------------------------
 @black95 : lighten(@black, 5%);
 @black90 : lighten(@black, 10%);
 @black85 : lighten(@black, 15%);
@@ -198,14 +198,14 @@
 
 // Links
 // -------------------------
-@linkColor:             @lightBlue;
+@linkColor:             @brand-primary;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
 @clfFontFamily:         Arial, "Helvetica Neue", Helvetica, sans-serif;
-@sansFontFamily:        "Whitney", Arial, "Helvetica Neue", Helvetica, sans-serif;
+@sansFontFamily:        "Whitney SSm A", "Whitney SSm B", Arial, "Helvetica Neue", Helvetica, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 @alternateFontFamily:   Open Sans, Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -233,7 +233,7 @@
 // Buttons
 // -------------------------
 @btnBorderRadius:                   5px;
-/*@btnBackground:                     @white;
+@btnBackground:                     @white;
 @btnBackgroundHighlight:            darken(@white, 10%);
 @btnBorder:                         #ccc;
 
@@ -246,14 +246,14 @@
 @btnSuccessBackground:              #62c462;
 @btnSuccessBackgroundHighlight:     #51a351;
 
-@btnWarningBackground:              lighten(@orange, 15%);
-@btnWarningBackgroundHighlight:     @orange;
+@btnWarningBackground:              @warningBackground;
+@btnWarningBackgroundHighlight:     darken(@warningBackground, 10%);
 
 @btnDangerBackground:               #ee5f5b;
 @btnDangerBackgroundHighlight:      #bd362f;
 
 @btnInverseBackground:              #444;
-@btnInverseBackgroundHighlight:     @grayDarker;*/
+@btnInverseBackgroundHighlight:     @grayDarker;
 
 
 // Forms

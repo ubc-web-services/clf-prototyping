@@ -80,7 +80,7 @@ div.media-group + .accordion-formatted,
   &:after {
     position: absolute;
     // add 'plus' icon - see http://fontawesome.github.io/Font-Awesome/3.2.1/icons/ for alternates (click on icon to find unicode)
-    content: "\F055";
+    //content: "\F055"; - moved to different selector
     font-family: @iconFontFamily;
     padding: .4em;
     font-size: 1.4em;
@@ -101,7 +101,13 @@ div.media-group + .accordion-formatted,
   }
 }
 .js .accordion-closed .accordion-content { display: none; }
-.accordion-open .accordion-tab:after {
+
+.accordion .accordion-tab:after {
   // add 'minus' icon - see http://fontawesome.github.io/Font-Awesome/3.2.1/icons/ for alternates (click on icon to find unicode)
   content: "\F056";
 }
+.accordion.accordion-closed .accordion-tab:after {
+  // add 'plus' icon - see http://fontawesome.github.io/Font-Awesome/3.2.1/icons/ for alternates (click on icon to find unicode)
+  content: "\F055";
+}
+

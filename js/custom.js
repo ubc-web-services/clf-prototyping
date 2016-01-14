@@ -3,15 +3,12 @@
 
   $(document).ready(function() {
     
-    // !!! remove from production !!!
   	// tabs
   	$('.tabs a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
     });
     
-    
-    // !!! remove from production !!!
     // accordion
     $('.accordion').find('.accordion-tab').click(function(e){
       e.preventDefault();
@@ -23,10 +20,26 @@
       //$(".accordion-content").not($(this).next()).slideUp('fast');
     });
     
+    $("a.anchor[href^='#']").on('click', function(e) {
+    
+      // prevent default link click behaviour
+      e.preventDefault();
+
+      // animate
+      $('html, body').animate({
+        scrollTop: $(this.hash).offset().top
+      }, 300, function(){
+
+      // when done, add hash to url
+      // (default click behaviour)
+      //window.location.hash = this.hash;
+      });
+
+    });
     
     
     /* FORMSTONE - form element changes */
-    $("input[type=checkbox], input[type=radio]").checkbox();
+    //$("input[type=checkbox], input[type=radio]").checkbox();
     $("select").dropdown();
     $(".equalize").equalize({
         target: ".btn"
@@ -47,11 +60,6 @@
             }
         }
     });  
-  });
-
-  $(window).load(function() {
-    // initialize flexslider slideshows
-    $('.flexslider').flexslider();
   });
 
 })(jQuery);

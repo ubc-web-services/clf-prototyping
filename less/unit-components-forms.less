@@ -1,0 +1,46 @@
+/* FORMS
+-------------------------------------------------- */
+
+/*
+
+  SAMPLE MARKUP: (variable depending on how they are generated)
+  --------------------------------------------------
+  
+  
+  CUSTOM NURSING FORM CLASSES:
+  --------------------------------------------------
+  .condensed - add to form element to make label sizes smaller
+  
+  
+  VARIABLES:
+  --------------------------------------------------
+  @baseFontSize - sets the font size of form elements
+  @ubcBlue - sets the form label colours
+  @unit-accent-light - add a border colour to views exposed widgets
+  @inputBorderRadius - set the border radius for form elements
+  @inputBorder - set the border colour for form elements
+  @inputBorderFocus - set the border focus colour for form elements
+  
+  
+*/
+
+.views-exposed-widgets {
+  border-bottom: none;
+  border-top: none;
+}
+
+.views-exposed-form .input-append .form-item {
+  display: inline-block;
+}
+
+// adjust formstone form styles
+.fs-dropdown-options button {
+  border: none;
+  border-bottom: 1px solid @unit-accent-light;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.input-append .btn.form-submit {
+  margin-left: .5em;
+}
